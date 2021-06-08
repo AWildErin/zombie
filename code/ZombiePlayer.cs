@@ -2,9 +2,9 @@ using Sandbox;
 
 namespace Zombie
 {
-    partial class ZombiePlayer : Player
-    {
-        public override void Respawn()
+	partial class ZombiePlayer : Player
+	{
+		public override void Respawn()
 		{
 			SetModel( "models/citizen/citizen.vmdl" );
 
@@ -20,13 +20,13 @@ namespace Zombie
 			base.Respawn();
 		}
 
-        public override void Simulate( Client cl )
+		public override void Simulate( Client cl )
 		{
 			base.Simulate( cl );
 
-            // If we have active children, like weapons, we have to simulate them.
-            SimulateActiveChild( cl, ActiveChild );
-        }
+			// If we have active children, like weapons, we have to simulate them.
+			SimulateActiveChild( cl, ActiveChild );
+		}
 
 		public override void OnKilled()
 		{
@@ -34,5 +34,5 @@ namespace Zombie
 
 			EnableDrawing = false;
 		}
-    }
+	}
 }
