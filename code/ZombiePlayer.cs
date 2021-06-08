@@ -1,8 +1,8 @@
 using Sandbox;
 
-namespace Template
+namespace Zombie
 {
-    partial class TemplatePlayer : Player
+    partial class ZombiePlayer : Player
     {
         public override void Respawn()
 		{
@@ -10,7 +10,7 @@ namespace Template
 
 			Controller = new WalkController();
 			Animator = new StandardPlayerAnimator();
-			Camera = new ThirdPersonCamera();
+			Camera = new FirstPersonCamera();
 
 			EnableAllCollisions = true;
 			EnableDrawing = true;

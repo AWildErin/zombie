@@ -1,11 +1,11 @@
 using Sandbox;
 
-namespace Template
+namespace Zombie
 {
-    [Library( "template" )]
-    public partial class TemplateGame : Game
+    [Library( "zombie" )]
+    public partial class ZombieGame : Game
     {
-        public TemplateGame()
+        public ZombieGame()
         {
             if ( IsServer )
             {
@@ -17,7 +17,7 @@ namespace Template
         {
 			base.ClientJoined( client );
 
-			var player = new TemplatePlayer();
+			var player = new ZombiePlayer();
 			client.Pawn = player;
 
 			player.Respawn();
