@@ -1,4 +1,6 @@
 using Sandbox;
+using System.Linq;
+using Zombie.Modules;
 
 namespace Zombie
 {
@@ -7,6 +9,21 @@ namespace Zombie
 	{
 		public ZombieGame()
 		{
+			// Init our modules first so the hud can use stuff from it.
+			var allModules = from module in Library.GetAll<BaseModule>()
+							 where !module.IsAbstract
+							 select module;
+			foreach ( var module in allModules )
+			{
+				var moduleClass = Library.Create<BaseModule>( module.FullName );
+				Log.Info( $"Initialising: {module.FullName}" );
+
+				if ( moduleClass.Init() )
+				{
+					BaseModule.Modules.Add( moduleClass );
+				}
+			}
+
 			if ( IsServer )
 			{
 				// Add your HUD here
