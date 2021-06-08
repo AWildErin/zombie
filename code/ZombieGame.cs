@@ -1,6 +1,7 @@
 using Sandbox;
 using System.Linq;
 using Zombie.Modules;
+using Zombie.UI;
 
 namespace Zombie
 {
@@ -26,7 +27,7 @@ namespace Zombie
 
 			if ( IsServer )
 			{
-				// Add your HUD here
+				new ZombieHud();
 			}
 		}
 
