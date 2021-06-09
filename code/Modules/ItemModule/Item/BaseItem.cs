@@ -15,6 +15,6 @@ namespace Zombie.Modules.ItemModule
 		public float Weight { get; set; } = 1f;
 		public int Stack { get; set; }
 
-		public virtual Dictionary<string, ItemFunction> ItemFunctions { get; set; }
+		public virtual Dictionary<string, ItemFunction> ItemFunctions { get; }
 	}
 }
