@@ -1,4 +1,5 @@
 using Sandbox;
+using System.Collections.Generic;
 using System.Linq;
 using Zombie.Modules;
 using Zombie.UI;
@@ -8,6 +9,8 @@ namespace Zombie
 	[Library( "zombie" )]
 	public partial class ZombieGame : Game
 	{
+		public static List<BaseModule> Modules = new List<BaseModule>();
+
 		public ZombieGame()
 		{
 			// Init our modules first so the hud can use stuff from it.
@@ -21,7 +24,7 @@ namespace Zombie
 
 				if ( moduleClass.Init() )
 				{
-					BaseModule.Modules.Add( moduleClass );
+					Modules.Add( moduleClass );
 				}
 			}
 

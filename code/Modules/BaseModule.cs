@@ -5,8 +5,6 @@ namespace Zombie.Modules
 {
 	public abstract class BaseModule : NetworkComponent
 	{
-		public static List<BaseModule> Modules = new List<BaseModule>();
-
 		/// <summary>
 		/// Called when the game is created.
 		/// </summary>
