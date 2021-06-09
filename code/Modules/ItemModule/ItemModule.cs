@@ -1,4 +1,5 @@
 using Sandbox;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Zombie.Entities;
@@ -37,7 +38,7 @@ namespace Zombie.Modules.ItemModule
 			{
 
 				var itemClass = Library.Create<BaseItem>( item.FullName );
-				Log.Info( $"Found item: {itemClass.ItemName}" );
+				Log.Info( $"Found item: {itemClass.ItemName} ({itemClass.ItemId})" );
 
 				IEnumerable<BaseItem> Duplicates = Items.Where( x => x.ItemId == itemClass.ItemId );
 
@@ -70,6 +71,14 @@ namespace Zombie.Modules.ItemModule
 
 
 			Log.Info( $"Item is: {item}, Position: {pos}, Angles: {ang}" );
+		}
+
+		[ServerCmd( "zom_itemsystem_reloaditems" )]
+		public static void ReloadItemsCmd()
+		{
+			// I don't like this, but for now it's okay
+			var _ = new ItemModule();
+			_.LoadItems();
 		}
 	}
 }
