@@ -6,9 +6,12 @@ materials/default/*
 tools_*_*.bin
 accesslist.txt
 *bakeresourcecache*
-maps/*.vpk
-maps/*.los
+maps/**/*.vpk
+maps/**/*.los
 
+models/*
+materials/*
+ui/*
 
 # Misc stuff
 *.csproj
